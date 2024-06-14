@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="screen active" id="screen1">
+        <div class="content">
+            <h1>Ежедневная награда</h1>
+            <p>Подарок уже 25 дней</p>
+            <button class="btn" data-next="screen2">Забрать +50</button>
+        </div>
+    </div>
+
+    <div class="screen" id="screen2">
+        <div class="content">
+            <h1>Режим</h1>
+            <ul>
+                <li><button class="btn" data-next="screen3">Слова</button></li>
+                <li><button class="btn" data-next="screen3">Грамматика</button></li>
+                <li><button class="btn" data-next="screen3">Фразы</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="screen" id="screen3">
+        <div class="content">
+            <h1>Получить больше монет</h1>
+            <ul>
+                <li><button class="btn" data-next="screen4">Смотреть рекламу</button></li>
+                <li><button class="btn" data-next="screen5">Пригласить друзей</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="screen" id="screen4">
+        <div class="content">
+            <h1>Займи первое место</h1>
+            <ul class="leaderboard">
+                <li>1. User1 - 3500</li>
+                <li>2. User2 - 3200</li>
+                <li>3. User3 - 3000</li>
+                <!-- Add more users as needed -->
+            </ul>
+            <button class="btn" data-next="screen5">Пригласить друзей</button>
+        </div>
+    </div>
+
+    <div class="screen" id="screen5">
+        <div class="content">
+            <h1>Пригласить друзей</h1>
+            <button class="btn" data-next="screen6">Пригласить</button>
+        </div>
+    </div>
+
+    <div class="screen" id="screen6">
+        <div class="content">
+            <h1>Просмотр рекламы</h1>
+            <button class="btn">Посмотреть +100</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

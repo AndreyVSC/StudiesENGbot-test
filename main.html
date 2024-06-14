@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily reward</title>
+    <style>
+        @font-face {
+            font-family: 'Cera Pro Bold';
+            src: url('CeraPro-Bold.eot');
+            src: url('CeraPro-Bold.eot?#iefix') format('embedded-opentype'),
+            url('CeraPro-Bold.woff') format('woff'),
+            url('CeraPro-Bold.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #background {
+            position: absolute;
+            top: 0;
+            left:0;
+            background-color: black;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #background-smooth-coin{
+            position: relative;
+            top: -150px;
+            left: 120px;
+            filter: blur(85px) brightness(160%);
+            width: 250px;
+            height:250px;
+        }
+        #background-big-coin{
+            position: relative;
+            top: -360px;
+            left: -100px;
+            filter: blur(4px) brightness(110%);
+            transform: rotate(30deg);
+            width: 280px;
+            height:280px;
+        }
+        #background-small-coin{
+            position: relative;
+            top: -500px;
+            left: 345px;
+            filter: blur(0.5px) brightness(110%);
+            transform: rotate(240deg);
+            width: 50px;
+            height:50px;
+        }
+        #layout{
+            position: absolute;
+            font-family: 'Cera Pro Bold';
+            z-index:445;
+        }
+        #layout-text p{
+            position: absolute;
+            font-size: 38px;
+            color:white;
+            width: 100vw;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        #layout-text a{
+            position: absolute;
+            top: 200px;
+            display: flex;
+            justify-content: center;
+            width:100vw;
+        }
+        #layout-text a p {
+            color:#626574; 
+            width:305px;
+            font-size:14px;
+        }
+        #layout-onlive-days p{
+            position: absolute;
+            font-size: 22px;
+            color:white;
+            width: 100vw;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        
+        #layout-onlive-days-hint{
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            left: 220px;
+            top: 330px;
+            background: #5C52A0;
+            opacity: 0.4;
+            filter: blur(25.5px);
+
+        }
+        #onlive-days-count{
+            position: relative;
+            font-size: 38px;
+            color: transparent;    
+            -webkit-background-clip: text;
+            background-clip: text;
+            opacity: 1;
+            filter: blur(0px);
+            background-image: linear-gradient(225deg, #836DC9, #524C95)
+        }
+        #layout-button{
+            display: flex;
+            justify-content: center;
+            width:100vw; 
+        }
+        #layout-button #div {
+            border-radius: 15px;
+            position: absolute;
+            top: 442px;
+            width: 254px;
+            height: 114px;
+            margin: 30px;
+            background-color: #4F3C2C;
+        }
+        #layout-button #div::before{
+            width: 260px;
+            height: 120px;
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            background: linear-gradient(225deg, #A0550A 0%, #DAC480 38%, #4B2605 73%, #D3B454 89%, #703105 100%);;
+            border-radius: 19px;
+            z-index: -1;
+        }
+        #div2{
+            border-radius: 15px;
+            position: absolute;
+            width: 254px;
+            height: 114px;
+            background-color: black;
+            opacity: 0.5;
+        }
+        #button-underground-shadow {
+            border-radius: 15px;
+            position: absolute;
+            width: 245px;
+            height: 112px;
+            background-color: #AE6000;
+            opacity: 0.5;
+            top: 472px;
+            filter: blur(50px)
+        }
+        #div a{
+            color: white;
+            z-index: 9999999;
+            width: 100%;
+            font-size: 32px;
+            top: 10px;
+            text-align: center;
+            position: absolute;
+        }
+        #div p{
+            z-index: 9999999;
+            width: 100%;
+            font-size: 32px;
+            top: 28px;
+            left:26px;
+            text-align: center;
+            position: absolute;
+            color: transparent;    
+            -webkit-background-clip: text;
+            background-clip: text;
+            opacity: 1;
+            filter: blur(0px);
+            background-image: linear-gradient(225deg, #D79A03, #BD6F00)
+        }
+        #div img{
+            position: absolute;
+            filter: blur(0px);
+            width: 35px;
+            z-index: 9999999;
+            height: 35px;
+            top: 65px;
+            left:80px;
+            opacity: 1;
+        }
+        #footer-menu{
+            font-family: 'Cera Pro Bold';
+            font-size: 14px;
+            display: flex;
+            position: fixed;
+            top:620px;
+            justify-content: center;
+            width:100vw; 
+        }
+        #menu{
+            width: 95%;
+            height: 110px;
+            background-color: #2F3037;
+            border-radius: 30px;
+            filter: opacity(70%);
+            color:#70727A;
+            display: flex;
+        }
+        .menu-item{
+            position: relative;
+            width:100px;
+            margin-right: 0px;
+        }
+        .menu-item img{
+            position: absolute;
+            top: 10px;
+            height: 50px;
+            filter: saturate(0%) opacity(80%);
+            left:-5px;
+        }
+        .menu-item p{
+            position: absolute;
+            width:98%;
+            text-align: center;
+            top:50px;
+            left:-5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="background">
+        <img id="background-smooth-coin" src="ENG-coin.png">
+        <br>
+        <img src="ENG-coin.png" alt="" id="background-big-coin">
+        <br>
+        <img src="ENG-coin.png" alt="" id="background-small-coin">
+    </div>
+    <div id="layout">
+        <div id="layout-text">
+            <p style="top: 75px;">Ежедневная</p>
+            <p style="top: 120px;">награда</p>
+            <a style="">
+                <p style="">
+                    Забирай монеты за ежедневный вход <br>в игру без пропусков! Кнопку «Забрать» нужно нажимать ежедневно, иначе счетчик дней начнется заново! С каждым днем награда будет расти!
+                </p>
+            </a>
+        </div>
+        <div id="layout-onlive-days">
+            <div id="layout-onlive-days-hint"></div>
+            <p style="top: 315px;">Подряд уже  <a id="onlive-days-count">25</a>  дней</p>
+            <p style="top: 375px;">Так держать!</p>
+        </div>
+        <div id="layout-button">
+            <div id="div">
+                <div id="div2">
+                    <div id="background-button">
+                    </div>
+                </div>
+                <a>Забрать</a>
+                <img src="ENG-coin.png" alt="" id="btn-coin">
+                <p>+50</p>
+            </div>
+            <div id="button-underground-shadow"></div>
+        </div>
+        
+
+        </div>
+    </div>
+    <div id="footer-menu">
+        <div id="menu">
+            <div id="tests" class="menu-item" onclick="changeMenu('tests')">
+                <img src="tests.png" alt="" style="filter:saturate(0%) brightness(110%) ;" id="tests-img">
+                <p>Тесты</p>
+            </div>
+            <div id="tasks" class="menu-item" onclick="changeMenu('tasks')">
+                <img src="tasks.png" alt="" id="tasks-img">
+                <p>Задания</p>
+            </div>
+            <div id="leaderboard" class="menu-item" onclick="changeMenu('leaderboard')">
+                <img src="leaderboard.png" alt="" id="leaderboard-img">
+                <p>Таблица лидеров</p>
+            </div>
+            <div id="friends" class="menu-item" onclick="changeMenu('friends')">
+                <img src="friends.png" alt="" id="friends-img">
+                <p>Друзья</p>
+            </div>
+            <div id="building" class="menu-item" onclick="changeMenu('building')">
+                <img src="building.png" alt="" id="building-img">
+                <p>Постройка школы</p>
+            </div>
+        </div>
+    </div>
+</body>
+<desc></desc>
+</html>
