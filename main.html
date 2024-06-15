@@ -462,6 +462,7 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        let server_ip = "http://45.82.153.57"
         let tg = window.Telegram.WebApp;
         tg.expand()
         let screens_id = ["dailyRewardScreen", "tasks"]
@@ -480,7 +481,7 @@
             if (new_screen == "tasks") {
                 let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
                 let xhr = new XMLHttpRequest()
-                xhr.open("POST", '/getCompletedTasks')
+                xhr.open("POST", server_ip+'/getCompletedTasks')
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
                     if (this.readyState != 4) alert("error");
@@ -494,7 +495,7 @@
             if (new_screen == "dailyRewardScreen") {
                 let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
                 let xhr = new XMLHttpRequest()
-                xhr.open("POST", '/getDailyCount')
+                xhr.open("POST", server_ip+'/getDailyCount')
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
                     if (this.readyState != 4) alert("error");
@@ -507,7 +508,7 @@
         function claimDailyReward() {
             let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
             let xhr = new XMLHttpRequest()
-            xhr.open("POST", '/claimDailyReward')
+            xhr.open("POST", server_ip+'/claimDailyReward')
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onreadystatechange = function() {
                 if (this.readyState != 4) alert("error");
