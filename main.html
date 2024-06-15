@@ -319,6 +319,9 @@
             filter: blur(40px); 
             width: 364px
         }
+        body{
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -513,6 +516,7 @@
                 xhr.open("POST", server_ip+'/claimDailyReward')
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
+                    alert(xhr.readyState)
                     if(http.readyState == 4 && http.status == 200) {
                         document.getElementById("div").innerHTML = "<div id='div2'><div id='background-button'></div></div><a style='top: 30px'>Успешено!</a>"
                         changeMenu("tests")
@@ -520,7 +524,7 @@
                 }
                 alert(server_ip+'/claimDailyReward')
                 xhr.send(body)
-                alert(xhr.readyState)
+                
             } catch(error) {
                 alert(error)
             }
