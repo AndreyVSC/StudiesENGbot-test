@@ -491,6 +491,7 @@
                     })
                   }
                 xhr.send(body)
+                
             }
             if (new_screen == "dailyRewardScreen") {
                 let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
@@ -519,6 +520,7 @@
                 }
                 alert(server_ip+'/claimDailyReward')
                 xhr.send(body)
+                alert(xhr.readyState)
             } catch(error) {
                 alert(error)
             }
