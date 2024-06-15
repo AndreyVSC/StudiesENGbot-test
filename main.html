@@ -465,7 +465,7 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        let server_ip = "https://45.82.153.57:443"
+        let server_ip = "https://45.82.153.57"
         let tg = window.Telegram.WebApp;
         tg.expand()
         let screens_id = ["dailyRewardScreen", "tasks"]
@@ -516,12 +516,14 @@
                 xhr.open("POST", server_ip+'/claimDailyReward')
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
+                    alert(http.readyState)
+                    alert(http.readyState == 4)
                     if(http.readyState == 4) {
+                        alert(true)
                         document.getElementById("div").innerHTML = "<div id='div2'><div id='background-button'></div></div><a style='top: 30px'>Успешено!</a>"
                         changeMenu("tasks")
                     }
                 }
-                alert(server_ip+'/claimDailyReward')
                 xhr.send(body)
                 
             } catch(error) {
