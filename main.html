@@ -507,16 +507,15 @@
         }
         function claimDailyReward() {
             try {
-                alert(tg.initDataUnsafe)
-                alert(tg.initDataUnsafe.user)
                 let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
                 let xhr = new XMLHttpRequest()
                 xhr.open("POST", server_ip+'/claimDailyReward')
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
-                    if (this.readyState != 4) alert("error");
-                    document.getElementById("div").innerHTML = "<div id='div2'><div id='background-button'></div></div><a style='top: 30px'>Успешено!</a>"
-                    changeMenu("tests")
+                    if(http.readyState == 4 && http.status == 200) {
+                        document.getElementById("div").innerHTML = "<div id='div2'><div id='background-button'></div></div><a style='top: 30px'>Успешено!</a>"
+                        changeMenu("tests")
+                    }
                 }
                 alert(body)
                 xhr.send(body)
