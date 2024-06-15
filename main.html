@@ -507,6 +507,8 @@
         }
         function claimDailyReward() {
             try {
+                alert(tg.initDataUnsafe)
+                alert(tg.initDataUnsafe.user)
                 let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
                 let xhr = new XMLHttpRequest()
                 xhr.open("POST", server_ip+'/claimDailyReward')
