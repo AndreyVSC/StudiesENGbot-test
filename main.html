@@ -54,14 +54,14 @@
             height:50px;
         }
         #big-leaderboard{
-            top: 110px;
+            top: 90px;
             filter: blur(1px) brightness(120%);
-            height: 110px;
+            height: 130px;
             position: absolute;     
         }
         #big-coin{
-            position: relative;
-            top: -470px;
+            position: absolute;
+            top: 90px;
             filter: blur(1px) brightness(120%);
             width: 130px;
             height:130px;
@@ -260,6 +260,22 @@
         }
         .content-leaderboard a{
             font-size: 24px;
+            text-align: center;
+            width: 100%;
+            top: 220px;
+            font-family: "Cera Pro Bold";
+            color: white;
+            position: absolute;   
+        }
+
+        .content-tasks{
+            display: flex;
+            justify-content: center;
+            /* position: absolute; */
+            width: 100vw;
+        }
+        .content-tasks a{
+            font-size: 26px;
             text-align: center;
             width: 100%;
             top: 220px;
@@ -649,7 +665,7 @@
         </div>
         <div id="layout">
             <div id="layout-text">
-                <p style="top: 230px; font-size:26px">Получи больше монет</p>
+                <p style="top: 205px; font-size:24px">Получи больше монет</p>
             </div>
             <div class="layout-button-tasks" style="">
                 <div class="div-tasks" style="top: 292px;" id="task-daily" onclick="changeMenu('dailyRewardScreen')">
