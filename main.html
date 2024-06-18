@@ -1439,7 +1439,7 @@
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
                     alert(this.readyState)
-                    if (this.readyState != 4) {alert("error");tg.close()};
+                    if (this.readyState != 4) {alert("error")};
                     console.log(JSON.parse(xhr.responseText)["balance"])
                     alert(responseText)
                   }
