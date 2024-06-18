@@ -1002,7 +1002,7 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        let server_ip = "https://andreybogdanov.ru"
+        let server_ip = ""
         let tg = window.Telegram.WebApp;
         tg.expand()
         function changeMenu(new_screen) {
@@ -1328,7 +1328,7 @@
                 xhr.open("POST", server_ip+'/getLeaderboard')
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
-                    if (this.readyState != 4) alert("error");
+                    if (this.readyState != 4) console.log("error");
                     let data = JSON.parse(this.response)
                     let index = 0;
                     data["users"].forEach((user) => {
