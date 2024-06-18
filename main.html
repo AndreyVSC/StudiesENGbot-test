@@ -1019,7 +1019,9 @@
                 }
             });
             if (new_screen == "tasks") {
-                let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
+                let id =tg.initDataUnsafe.user.id
+                if (id == undefined) {id = 0}
+                let body = JSON.stringify({"id": id})
                 let xhr = new XMLHttpRequest()
                 xhr.open("POST", server_ip+'/getCompletedTasks')
                 xhr.setRequestHeader('Content-Type', 'application/json');
@@ -1034,9 +1036,11 @@
                 
             }
             if (new_screen == "dailyRewardScreen") {
-                let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
+                let id =tg.initDataUnsafe.user.id
+                if (id == undefined) {id = 0}
+                let body = JSON.stringify({"id": id})
                 let xhr = new XMLHttpRequest()
-                xhr.open("POST", server_ip+'/getDailyCount')
+                xhr.open("POST", server_ip+'/getDailyCount', 1)
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.onreadystatechange = function() {
                     if (this.readyState != 4) alert("error");
@@ -1317,7 +1321,9 @@
                     </div>
                     <div id="container">
                 `
-                let body = JSON.stringify({"id": tg.initDataUnsafe.user.id, "username": tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name})
+                let id =tg.initDataUnsafe.user.id
+                if (id == undefined) {id = 0}
+                let body = JSON.stringify({"id": id, "username": tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name})
                 let xhr = new XMLHttpRequest()
                 xhr.open("POST", server_ip+'/getLeaderboard')
                 xhr.setRequestHeader('Content-Type', 'application/json');
@@ -1367,7 +1373,9 @@
                     .then((data) => {
                         console.log(data);
                 });
-                let body = JSON.stringify({"id": tg.initDataUnsafe.user.id})
+                let id =tg.initDataUnsafe.user.id
+                if (id == undefined) {id = 0}
+                let body = JSON.stringify({"id": id})
                 let xhr = new XMLHttpRequest()
                 xhr.open("POST", server_ip+'/claimDailyReward')
                 xhr.setRequestHeader('Content-Type', 'application/json');
@@ -1402,7 +1410,9 @@
                     document.getElementById(id).classList.add("hidden")
                 }
             });
-            let body = JSON.stringify({"id": tg.initDataUnsafe.user.id, "type": test_type})
+            let id =tg.initDataUnsafe.user.id
+            if (id == undefined) {id = 0}
+            let body = JSON.stringify({"id": id, "type": test_type})
             let xhr = new XMLHttpRequest()
             xhr.open("POST", server_ip+'/getQuestion')
             xhr.setRequestHeader('Content-Type', 'application/json');
@@ -1421,7 +1431,9 @@
             xhr.send(body)
         }
         document.addEventListener("DOMContentLoaded", function() {
-            let body = JSON.stringify({"id": tg.initDataUnsafe.user.id, "username": tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name,})
+            let id =tg.initDataUnsafe.user.id
+            if (id == undefined) {id = 0}
+            let body = JSON.stringify({"id": id, "username": tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name,})
                 let xhr = new XMLHttpRequest()
                 xhr.open("POST", server_ip+'/login')
                 xhr.setRequestHeader('Content-Type', 'application/json');
